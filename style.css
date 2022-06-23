@@ -24,4 +24,28 @@ header,footer{
 main{
     height: 80vh;
     background-color: blanchedalmond;
+    display: flex;
+    align-items: center;
+}
+
+.active{
+    background-color: cadetblue;;
+    color:white;
+}
+
+.container-grid{
+    margin: 0 auto;
+    height: 750px;
+    width: 750px;
+    border: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+
+.square{
+    height: 10%;
+    width: 10%;
+    border: 3px solid black;
 }

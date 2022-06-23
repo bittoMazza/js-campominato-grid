@@ -8,9 +8,23 @@ come argomento della funzione;
 */
 
 const generateButton = document.getElementById('generate-grid-btn');
+const gridWrapper = document.getElementById('grid-wrapper')
 
 generateButton.addEventListener('click',function(){
     for(let i = 0 ; i < 100 ; i++){
-        
+       const newBox = createBox(i); 
+       newBox.innerHTML = i;
+       gridWrapper.append(newBox);
     }
 })
+
+
+function createBox(index){
+    let newSquare = document.createElement('div');
+    newSquare.classList.add('square')
+    newSquare.addEventListener('click',function(){
+        newSquare.classList.toggle('active')
+        console.log('Hai cliccato la casella numero : ' + index);
+    })
+    return newSquare
+}
