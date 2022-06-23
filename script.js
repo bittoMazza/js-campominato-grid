@@ -14,17 +14,20 @@ generateButton.addEventListener('click',function(){
     // Text Content = "" per rimuovere la vecchia tabella in modo che la nuova non si aggiunga alla vecchia
     gridWrapper.textContent = ""
     const diffSelection = document.getElementById('difficult-selection').value;
+    let nameSquareClass;
     if(diffSelection == 'easy'){
         numBox = 100;
+        nameSquareClass = 'square-easy'
     }else if(diffSelection == 'medium'){
         numBox = 81;
-    }
-    else{
+        nameSquareClass = 'square-medium'
+    }else{
         numBox = 49;
+        nameSquareClass = 'square-hard'
     }
     gridWrapper.classList.add('border-black')
     for(let i = 0 ; i < numBox ; i++){
-       const newBox = createBox(i,diffSelection); 
+       const newBox = createBox(i,nameSquareClass); 
        newBox.innerHTML = i + 1;
        gridWrapper.append(newBox);
     }
@@ -33,15 +36,7 @@ generateButton.addEventListener('click',function(){
 
 function createBox(index,squareType){
     let newSquare = document.createElement('div');
-    newSquare.classList.add('square','border-black')
-    if(squareType == 'easy'){
-        newSquare.classList.add('square-easy')
-    }else if(squareType == 'medium'){
-        newSquare.classList.add('square-medium')
-    }
-    else{
-        newSquare.classList.add('square-hard')
-    }
+    newSquare.classList.add('square',squareType,'border-black')
     newSquare.addEventListener('click',function(){
         newSquare.classList.toggle('active')
         console.log('Hai cliccato la casella numero : ' + (index + 1));

@@ -31,8 +31,8 @@ main{
     align-items: center;
 }
 
-.main-title{
-    color: white;
+.white-text{
+    color: white;;
 }
 
 .active{
