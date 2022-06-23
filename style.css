@@ -10,8 +10,6 @@
 .nav{
     padding: 0 20px;
     height: 100%;
-    display: flex;
-    align-items: center;
     justify-content: space-between;
 }
 
@@ -27,8 +25,6 @@ header,footer{
 main{
     height: 80vh;
     background-color:rgb(162, 200, 212);
-    display: flex;
-    align-items: center;
 }
 
 .white-text{
@@ -40,6 +36,13 @@ main{
     color:white;
 }
 
+.d-flex{
+    display: flex;
+}
+.alg-center{
+    align-items: center;
+}
+
 .border-black{
     border: 3px solid black;
 }
@@ -48,7 +51,6 @@ main{
     margin: 0 auto;
     height: 750px;
     width: 750px;
-    display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
 }

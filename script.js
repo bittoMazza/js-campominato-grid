@@ -11,10 +11,9 @@ const generateButton = document.getElementById('generate-grid-btn');
 const gridWrapper = document.getElementById('grid-wrapper');
 let numBox;
 generateButton.addEventListener('click',function(){
-    // Text Content = "" per rimuovere la vecchia tabella in modo che la nuova non si aggiunga alla vecchia
-    gridWrapper.textContent = ""
-    const diffSelection = document.getElementById('difficult-selection').value;
-    let nameSquareClass;
+    const diffSelection = document.getElementById('difficult-selection').value; // Prendo il valore scelto dall'utente
+    let nameSquareClass; // Variabile a cui assegno il nome della classe da utilizzare per le box
+    gridWrapper.textContent = "" // Text Content = "" per rimuovere la vecchia tabella in modo che la nuova non si aggiunga alla vecchia 
     if(diffSelection == 'easy'){
         numBox = 100;
         nameSquareClass = 'square-easy'
