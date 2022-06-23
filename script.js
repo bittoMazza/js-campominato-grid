@@ -8,23 +8,44 @@ come argomento della funzione;
 */
 
 const generateButton = document.getElementById('generate-grid-btn');
-const gridWrapper = document.getElementById('grid-wrapper')
-
+const gridWrapper = document.getElementById('grid-wrapper');
+let numBox;
 generateButton.addEventListener('click',function(){
-    for(let i = 0 ; i < 100 ; i++){
-       const newBox = createBox(i); 
-       newBox.innerHTML = i;
+    // Text Content = "" per rimuovere la vecchia tabella in modo che la nuova non si aggiunga alla vecchia
+    gridWrapper.textContent = ""
+    const diffSelection = document.getElementById('difficult-selection').value;
+    if(diffSelection == 'easy'){
+        numBox = 100;
+    }else if(diffSelection == 'medium'){
+        numBox = 81;
+    }
+    else{
+        numBox = 49;
+    }
+    gridWrapper.classList.add('border-black')
+    for(let i = 0 ; i < numBox ; i++){
+       const newBox = createBox(i,diffSelection); 
+       newBox.innerHTML = i + 1;
        gridWrapper.append(newBox);
     }
 })
 
 
-function createBox(index){
+function createBox(index,squareType){
     let newSquare = document.createElement('div');
-    newSquare.classList.add('square')
+    newSquare.classList.add('square','border-black')
+    if(squareType == 'easy'){
+        newSquare.classList.add('square-easy')
+    }else if(squareType == 'medium'){
+        newSquare.classList.add('square-medium')
+    }
+    else{
+        newSquare.classList.add('square-hard')
+    }
     newSquare.addEventListener('click',function(){
         newSquare.classList.toggle('active')
-        console.log('Hai cliccato la casella numero : ' + index);
+        console.log('Hai cliccato la casella numero : ' + (index + 1));
     })
-    return newSquare
+    return newSquare;
 }
+
